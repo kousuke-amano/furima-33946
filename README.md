@@ -48,7 +48,7 @@ Things you may want to cover:
 
 |  Column     | Type       | Options                       |
 |  --------   | ------     | ----------------------------  |
-| item.name   | string     |       null: false             |
+| name        | string     |       null: false             |
 | description | text       |       null: false             |
 | category_id | integer    |       null: false             |
 | state_id    | integer    |       null: false             |
@@ -85,13 +85,14 @@ image    ActiveStorageで実装
 
 |  Column         | Type       | Options                            |
 |  --------       | ------     | ------------------------------     |
-| postal code     | string     | null: false                        |
+| postal_code     | string     | null: false                        |
 | prefectures_id  | integer    | null: false                        |
 | municipality    | string     | null: false                        |
 | adress          | string     | null: false                        |
 | building        | string     |                                    |
-| phone number    | string     | null: false                        |
+| phone_number    | string     | null: false                        |
 | buyer           | references | null: false, foreign_key: true     |
+
 ### Association
 
 - belongs_to :buyer
