@@ -26,16 +26,16 @@ Things you may want to cover:
 
 ## users テーブル
 
-|  Column         | Type   | Options                  |
-|  --------       | ------ | ------------------------ |
-| nickname        | string | null: false              |
-| email           | string | null: false, unique: true|
-| password        | string | null: false              |
-| last_name       | string | null: false              |
-| first_name      | string | null: false              |
-| last_name_kana  | string | null: false              |
-| first_name_kana | string | null: false              |
-| dateofbirth     | date   | null: false              |
+|  Column            | Type   | Options                  |
+|  --------          | ------ | ------------------------ |
+| nickname           | string | null: false              |
+| email              | string | null: false, unique: true|
+| encrypted_password | string | null: false              |
+| last_name          | string | null: false              |
+| first_name         | string | null: false              |
+| last_name_kana     | string | null: false              |
+| first_name_kana    | string | null: false              |
+| dateofbirth        | date   | null: false              |
 
 
 ### Association
@@ -46,17 +46,17 @@ Things you may want to cover:
 
 ## items テーブル
 
-|  Column     | Type    | Options                       |
-|  --------   | ------  | ----------------------------  |
-| item        | string  |       null: false             |
-| description | text    |       null: false             |
-| category_id | integer |       null: false             |
-| state_id    | integer |       null: false             |
-| burden_id   | integer |       null: false             |
-| area_id     | integer |       null: false             |
-| date_id     | integer |       null: false             |
-| price       | string  |       null: false             |
-
+|  Column     | Type       | Options                       |
+|  --------   | ------     | ----------------------------  |
+| item.name   | string     |       null: false             |
+| description | text       |       null: false             |
+| category_id | integer    |       null: false             |
+| state_id    | integer    |       null: false             |
+| burden_id   | integer    |       null: false             |
+| area_id     | integer    |       null: false             |
+| date_id     | integer    |       null: false             |
+| price       | integer    |       null: false             |
+| user        | references | null: false, foreign_key: true|
 
 ### Association
 
@@ -78,7 +78,7 @@ image    ActiveStorageで実装
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one    :address
 
 
 ## addresses テーブル
@@ -86,7 +86,7 @@ image    ActiveStorageで実装
 |  Column         | Type       | Options                            |
 |  --------       | ------     | ------------------------------     |
 | postal code     | string     | null: false                        |
-| prefectures_id  | integer    | null: false, foreign_key: true     |
+| prefectures_id  | integer    | null: false                        |
 | municipality    | string     | null: false                        |
 | adress          | string     | null: false                        |
 | building        | string     |                                    |
