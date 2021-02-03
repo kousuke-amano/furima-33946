@@ -46,18 +46,16 @@ Things you may want to cover:
 
 ## items テーブル
 
-|  Column     | Type   | Options                       |
-|  --------   | ------ | ----------------------------  |
-| item        | string |       null: false             |
-| description | text   |       null: false             |
-| category    | string |       null: false             |
-| state       | string |       null: false             |
-| burden      | string |       null: false             |
-| area        | string |       null: false             |
-| date        | string |       null: false             |
-| price       | string |       null: false             |
-| fee         | string |       null: false             |
-| profit      | string |       null: false             |
+|  Column     | Type    | Options                       |
+|  --------   | ------  | ----------------------------  |
+| item        | string  |       null: false             |
+| description | text    |       null: false             |
+| category_id | integer |       null: false             |
+| state_id    | integer |       null: false             |
+| burden_id   | integer |       null: false             |
+| area_id     | integer |       null: false             |
+| date_id     | integer |       null: false             |
+| price       | string  |       null: false             |
 
 
 ### Association
@@ -73,9 +71,8 @@ image    ActiveStorageで実装
 
 |  Column      | Type       | Options                        |
 |  --------    | ---------- | -----------------------------  |
-| user_id      | references | null: false, foreign_key: true |
-| item_id      | references | null: false, foreign_key: true |
-| buyer_id     | references | null: false, foreign_key: true |
+| user         | references | null: false, foreign_key: true |
+| item         | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -86,15 +83,15 @@ image    ActiveStorageで実装
 
 ## addresses テーブル
 
-|  Column         | Type   | Options                        |
-|  --------       | ------ | ------------------------------ |
-| postal code     | string | null: false                    |
-| prefectures_id  | integer| null: false, foreign_key: true |
-| municipality    | string | null: false                    |
-| adress          | string | null: false                    |
-| building        | string |                                |
-| phone number    | string | null: false                    |
-
+|  Column         | Type       | Options                            |
+|  --------       | ------     | ------------------------------     |
+| postal code     | string     | null: false                        |
+| prefectures_id  | integer    | null: false, foreign_key: true     |
+| municipality    | string     | null: false                        |
+| adress          | string     | null: false                        |
+| building        | string     |                                    |
+| phone number    | string     | null: false                        |
+| buyer           | references | null: false, foreign_key: true     |
 ### Association
 
 - belongs_to :buyer
