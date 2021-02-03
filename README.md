@@ -26,20 +26,22 @@ Things you may want to cover:
 
 ## users テーブル
 
-|  Column      | Type   | Options     |
-|  --------    | ------ | ----------- |
-| nickname     | string | null: false |
-| name         | string | null: false |
-| email        | string | null: false |
-| password     | string | null: false |
-| dateofbirth  | text   | null: false |
+|  Column         | Type   | Options                  |
+|  --------       | ------ | ------------------------ |
+| nickname        | string | null: false              |
+| email           | string | null: false, unique: true|
+| password        | string | null: false              |
+| last_name       | string | null: false              |
+| first_name      | string | null: false              |
+| last_name_kana  | string | null: false              |
+| first_name_kana | string | null: false              |
+| date            | date   | null: false              |
 
 
 ### Association
 
 - has_many   :items
-- belongs_to :buyer
-- belongs_to :addresse
+- has_many   :buyers
 
 
 ## items テーブル
@@ -48,30 +50,38 @@ Things you may want to cover:
 |  --------   | ------ | ----------------------------  |
 | item        | string |       null: false             |
 | description | text   |       null: false             |
-| delivery    | text   |       null: false             |
+| category    | string |       null: false             |
+| state       | string |       null: false             |
+| burden      | string |       null: false             |
+| area        | string |       null: false             |
+| date        | string |       null: false             |
 | price       | string |       null: false             |
+| fee         | string |       null: false             |
+| profit      | string |       null: false             |
 
 
 ### Association
 
 - belongs_to :user
-- belongs_to :buyer
-- belongs_to :addresse
+- has_one    :buyer
+
 
 image    ActiveStorageで実装
 
 
 ## buyers テーブル
 
-|  Column      | Type   | Options                        |
-|  --------    | ------ | -----------------------------  |
-| user_id      | string | null: false, foreign_key: true |
-| item_id      | string | null: false, foreign_key: true |
+|  Column      | Type       | Options                        |
+|  --------    | ---------- | -----------------------------  |
+| user_id      | references | null: false, foreign_key: true |
+| item_id      | references | null: false, foreign_key: true |
+| buyer_id     | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
+- belongs_to :address
 
 
 ## addresses テーブル
@@ -79,12 +89,12 @@ image    ActiveStorageで実装
 |  Column         | Type   | Options                        |
 |  --------       | ------ | ------------------------------ |
 | postal code     | string | null: false                    |
-| prefectures_id  | string | null: false, foreign_key: true |
+| prefectures_id  | integer| null: false, foreign_key: true |
 | municipality    | string | null: false                    |
 | adress          | string | null: false                    |
-| building        | string | null: false                    |
+| building        | string |                                |
 | phone number    | string | null: false                    |
 
 ### Association
 
-- belongs_to :user
+- belongs_to :buyer
