@@ -26,30 +26,30 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Description can't be blank"
       end
-      it 'categoryが空では登録できない' do
-        @item.category_id = ''
+      it 'categoryに1が選択されている場合は登録できない' do
+        @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Category can't be blank"
+        expect(@item.errors.full_messages).to include "Category Select"
       end
-      it 'stateが空では登録できない' do
-        @item.state_id = ''
+      it 'stateに1が選択されている場合は登録できない' do
+        @item.state_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "State can't be blank"
+        expect(@item.errors.full_messages).to include "State Select"
       end
-      it 'burdenが空では登録できない' do
-        @item.burden_id = ''
+      it 'burdenに1が選択されている場合は登録できない' do
+        @item.burden_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Burden can't be blank"
+        expect(@item.errors.full_messages).to include "Burden Select"
       end
-      it 'areaが空では登録できない' do
-        @item.area_id = ''
+      it 'areaに1が選択されている場合は登録できない' do
+        @item.area_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Area can't be blank"
+        expect(@item.errors.full_messages).to include "Area Select"
       end
-      it 'scheduleddateが空では登録できない' do
-        @item.scheduled_date_id = ''
+      it 'scheduleddateに1が選択されている場合は登録できない' do
+        @item.scheduled_date_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Scheduled date can't be blank"
+        expect(@item.errors.full_messages).to include "Scheduled date Select"
       end
       it 'priceが空では登録できない' do
         @item.price = ''
