@@ -15,7 +15,6 @@ RSpec.describe Item, type: :model do
         @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include "Image can't be blank"
-        # binding.pry
       end
       it 'nameが空では登録できない' do
         @item.name = ''
@@ -45,7 +44,6 @@ RSpec.describe Item, type: :model do
       it 'areaが空では登録できない' do
         @item.area_id = ''
         @item.valid?
-        # binding.pry
         expect(@item.errors.full_messages).to include "Area can't be blank"
       end
       it 'scheduleddateが空では登録できない' do
@@ -66,13 +64,13 @@ RSpec.describe Item, type: :model do
       end
       it 'priceが10000000円以上では登録できない' do
         @item.price = '10000000'
+
         @item.valid?
         expect(@item.errors.full_messages).to include 'Price is invalid'
       end
       it 'priceが半角数字でないと登録できない' do
         @item.price = '１０００'
         @item.valid?
-        # binding.pry
         expect(@item.errors.full_messages).to include('Price is invalid')
       end
     end
