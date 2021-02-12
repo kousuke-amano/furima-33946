@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :area
   belongs_to :burden
   belongs_to :category
-  belongs_to :scheduleddate
+  belongs_to :scheduled_date
   belongs_to :state
 
   with_options presence: true do
