@@ -29,27 +29,27 @@ RSpec.describe Item, type: :model do
       it 'categoryに1が選択されている場合は登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Category Select"
+        expect(@item.errors.full_messages).to include 'Category Select'
       end
       it 'stateに1が選択されている場合は登録できない' do
         @item.state_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "State Select"
+        expect(@item.errors.full_messages).to include 'State Select'
       end
       it 'burdenに1が選択されている場合は登録できない' do
         @item.burden_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Burden Select"
+        expect(@item.errors.full_messages).to include 'Burden Select'
       end
       it 'areaに1が選択されている場合は登録できない' do
         @item.area_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Area Select"
+        expect(@item.errors.full_messages).to include 'Area Select'
       end
       it 'scheduleddateに1が選択されている場合は登録できない' do
         @item.scheduled_date_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Scheduled date Select"
+        expect(@item.errors.full_messages).to include 'Scheduled date Select'
       end
       it 'priceが空では登録できない' do
         @item.price = ''
