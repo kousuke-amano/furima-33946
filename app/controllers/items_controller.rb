@@ -49,7 +49,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :category_id, :state_id, :burden_id, :area_id, :scheduled_date_id, :price,
                                  :image).merge(user_id: current_user.id)
   end
-end
 
  def move_to_index
   unless current_user ==  @item.user
