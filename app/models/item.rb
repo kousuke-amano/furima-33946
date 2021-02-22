@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
-  has_one_attached :buyer
+  has_one :buyer
   belongs_to :area
   belongs_to :burden
   belongs_to :category
