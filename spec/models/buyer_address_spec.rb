@@ -34,6 +34,11 @@ RSpec.describe BuyerAddress, type: :model do
         @buyer_address.valid?
         expect(@buyer_address.errors.full_messages).to include "Area can't be blank"
       end
+      it 'area_idがid(1)が選択されている場合は購入できない' do
+        @buyer_address.area_id = '1'
+        @buyer_address.valid?
+        expect(@buyer_address.errors.full_messages).to include "Area must be other than 1"
+      end
       it 'municipalityが空では購入できない' do
         @buyer_address.municipality = ''
         @buyer_address.valid?
