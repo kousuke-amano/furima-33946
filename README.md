@@ -86,7 +86,7 @@ image    ActiveStorageで実装
 |  Column         | Type       | Options                            |
 |  --------       | ------     | ------------------------------     |
 | postal_code     | string     | null: false                        |
-| prefectures_id  | integer    | null: false                        |
+| area_id         | integer    | null: false                        |
 | municipality    | string     | null: false                        |
 | adress          | string     | null: false                        |
 | building        | string     |                                    |
