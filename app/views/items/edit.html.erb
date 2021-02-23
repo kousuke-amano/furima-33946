@@ -90,7 +90,7 @@ app/assets/stylesheets/items/new.css %>
     <div class="sell-price">
       <div class="weight-bold-text question-text">
         <span>販売価格<br>(¥300〜9,999,999)</span>
-        <a class="question" href="#">?</a>
+        <a class="question" href="#">?</a>¥¥¥¥¥
       </div>
       <div>
         <div class="price-content">
@@ -99,7 +99,7 @@ app/assets/stylesheets/items/new.css %>
             <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field :hoge, class:"price-input", id:"item-price", placeholder:"例）300" %>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
         </div>
         <div class="price-content">
           <span>販売手数料 (10%)</span>
