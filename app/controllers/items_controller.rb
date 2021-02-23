@@ -24,7 +24,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path if current_user && !@item.buyer.nil?
   end
 
   def update
@@ -52,6 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to action: :index unless current_user == @item.user
+    redirect_to action: :index if current_user != @item.user || @item.buyer
   end
 end
